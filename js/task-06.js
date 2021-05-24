@@ -1,20 +1,17 @@
 'use strict';
 
 const inputRef = document.querySelector('#validation-input');
+const inputLength = inputRef.getAttribute('data-length');
 
 inputRef.addEventListener('blur', checkInputLength);
 
 function checkInputLength() {
-if (inputRef.value.length === Number(inputRef.dataset.length)) {
+    const validInputLength = parseInt(inputLength);
+    if (inputRef.value.length === validInputLength) {
+    inputRef.classList.remove('invalid');
     inputRef.classList.add('valid');
-        if (inputRef.classList.contains('invalid')) {
-            inputRef.classList.remove('invalid');
-        };
-
-}   if (inputRef.value.length !== Number(inputRef.dataset.length)) {
+  } else {
         inputRef.classList.add('invalid');
-        if (inputRef.classList.contains('valid)')) {
-            inputRef0classlist.remove('valid');
-        };
-    };
+        inputRef.classList.remove('valid');
+  }
 };

@@ -11,31 +11,13 @@ const ingredients = [
 
 const wholeList = document.querySelector('#ingredients');
 
-const potatoesEl = document.createElement('li');
-potatoesEl.textContent = 'Картошка';
+const createIngredientItem = ingredient => {
+    const itemEl = document.createElement('li');
+    itemEl.textContent = ingredient;
 
-const mashroomsEl = document.createElement('li');
-mashroomsEl.textContent = 'Грибы';
+    return itemEl;
+};
 
-const garlicEl = document.createElement('li');
-garlicEl.textContent = 'Чеснок';
+const createWholeList = ingredients.map(createIngredientItem);
 
-const tomatoEl = document.createElement('li');
-tomatoEl.textContent = 'Помидоры';
-
-const herbsEl = document.createElement('li');
-herbsEl.textContent = 'Зелень';
-
-const spicesEl = document.createElement('li');
-spicesEl.textContent = 'Приправы';
-
-wholeList.append(
-    potatoesEl,
-    mashroomsEl,
-    garlicEl,
-    tomatoEl,
-    herbsEl,
-    spicesEl
-);
-
-console.log(wholeList);
+wholeList.append(...createWholeList);

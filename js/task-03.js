@@ -18,17 +18,15 @@ const images = [
   },
 ];
 
-const createGalleryPicture = pic => {
-const { url, alt } = pic;
-return `<li> <img src = ${url} alt = ${alt} width = 720 height = 480> </li>`;
-};
+const gallery = document.querySelector('#gallery');
 
-const galleryMarkup = images.map(createGalleryPicture);
+const createGalleryPicture = function() {
+let galleryMarkup = '';
+  images.forEach((item) => {
+    galleryMarkup = `<li><img src='${item.url}' alt='${item.alt}' class='gallery-item'>`;
+    gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
+    gallery.classList.add('gallery');
+  })
+}
 
-const galleryWholeList = document.querySelector('#gallery');
-galleryWholeList.insertAdjacentHTML('afterbegin', galleryMarkup);
-
-galleryWholeList.style.display = 'flex';
-galleryWholeList.style.listStyle = 'none';
-// galleryWholeList.style.flexDirection = 'column';
-// galleryWholeList.style.justifyContent = 'center';
+createGalleryPicture();

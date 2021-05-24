@@ -1,12 +1,11 @@
 'use strict';
 
-const listId = document.querySelectorAll('h2');
-console.log(`В списке ${listId.length} категории.`);
+const listIdRef = document.querySelector('#categories');
+const itemRef = document.querySelectorAll('.item');
 
-const titleCategory = document.querySelector('h2');
-console.log('Категория:', titleCategory.textContent);
+console.log(`В списке ${listIdRef.children.length} категории.`);
 
-const itemDoc = document.querySelector('.item');
-const itemList = itemDoc.querySelectorAll('li');
-
-console.log('Количество элементов:', itemList.length);
+itemRef.forEach(el => {
+    console.log(`Категория: ${el.firstElementChild.textContent}`);
+    console.log(`Количество элементов: ${el.lastElementChild.children.length}`);
+});
