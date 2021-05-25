@@ -5,12 +5,11 @@ const refs = {
     greeting: document.querySelector('#name-output'),
 };
 
-refs.input.addEventListener('input', changeName)
+const changeName = (event) => {
+    refs.greeting.textContent = event.currentTarget.value !== ''
+        ? refs.greeting.textContent = event.currentTarget.value
+        : refs.greeting.textContent = 'незнакомец'
+}
 
-function changeName () {
-    refs.greeting.textContent = refs.input.value;
-    if (refs.greeting.textContent === '' || refs.greeting.textContent === null) {
-        refs.greeting.textContent = 'незнакомец';
-    }
-};
+refs.input.addEventListener('input', changeName);
 

@@ -18,15 +18,18 @@ const images = [
   },
 ];
 
+
+
 const gallery = document.querySelector('#gallery');
 
-const createGalleryPicture = function() {
-let galleryMarkup = '';
-  images.forEach((item) => {
-    galleryMarkup = `<li><img src='${item.url}' alt='${item.alt}' class='gallery-item'>`;
-    gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
-    gallery.classList.add('gallery');
-  })
-}
+const createPictureGallery = () => {
+  const createImageList = (array) =>
+    array.map(({ url, alt }) => { return `<li><img src = '${url}' alt = '${alt}' class='gallery-item'></li>` })
+    .join('');
+    
+    gallery.classList.add('gallery');
+    gallery.insertAdjacentHTML('afterbegin', createImageList(images));
+    gallery.querySelectorAll("li").forEach(item => item.classList.add("gallery-list"))
+};
 
-createGalleryPicture();
+createPictureGallery(images);
