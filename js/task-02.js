@@ -9,15 +9,15 @@ const ingredients = [
   'Приправы',
 ];
 
-const wholeList = document.querySelector('#ingredients');
+const fullList = document.querySelector('#ingredients');
 
-const createIngredientItem = ingredient => {
-    const itemEl = document.createElement('li');
-    itemEl.textContent = ingredient;
+const createIngredient = ingredient => {
+  const itemElement = document.createElement('li');
+  itemElement.textContent = ingredient;
 
-    return itemEl;
+  return itemElement;
 };
 
-const createWholeList = ingredients.map(createIngredientItem);
+const createFullList = ingredients.map(createIngredient);
 
-wholeList.append(...createWholeList);
+fullList.append(...createFullList);

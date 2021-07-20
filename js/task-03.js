@@ -18,8 +18,6 @@ const images = [
   },
 ];
 
-
-
 const gallery = document.querySelector('#gallery');
 
 const createPictureGallery = () => {

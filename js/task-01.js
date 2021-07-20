@@ -1,11 +1,13 @@
 'use strict';
 
-const listIdRef = document.querySelector('#categories');
-const itemRef = document.querySelectorAll('.item');
+const refs = {
+    listIdRef: document.querySelector('#categories'),
+    itemRef: document.querySelectorAll('.item'),
+}
 
-console.log(`В списке ${listIdRef.children.length} категории.`);
+console.log(`В списке ${refs.listIdRef.children.length} категории.`);
 
-itemRef.forEach(el => {
+refs.itemRef.forEach(el => {
     console.log(`Категория: ${el.firstElementChild.textContent}`);
     console.log(`Количество элементов: ${el.lastElementChild.children.length}`);
 });

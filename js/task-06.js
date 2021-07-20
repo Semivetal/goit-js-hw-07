@@ -15,3 +15,4 @@ function checkInputLength() {
         inputRef.classList.remove('valid');
   }
 };
+
